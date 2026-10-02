@@ -1,4 +1,4 @@
-# RoboMacro Official Macro
+# RoboMacro Official Macro MCP
 
 Cursor / Grok plugin for the free Official Macro MCP.
 
