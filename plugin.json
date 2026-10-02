@@ -1,0 +1,117 @@
+{
+  "name": "robomacro-official-macro",
+  "displayName": "RoboMacro Official Macro",
+  "version": "0.2.0",
+  "description": "Official macro prints plus free robomacro.com desks (hawk/dove, Taylor, China, FX, credit, housing, jobs). Read-only. Always cite human_url. Apply for jobs on the site.",
+  "author": { "name": "RoboMacro", "email": "notes@robomacro.com", "url": "https://robomacro.com" },
+  "homepage": "https://robomacro.com/open-data",
+  "repository": "https://github.com/ChrisRoboMacro/robomacro-official-macro",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": ["macro", "calendar", "Fed", "ECB", "jobs", "MCP"],
+  "category": "finance",
+  "mcpServers": "./mcp.json",
+  "skills": "./skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RoboMacro Official Macro",
+        "shortDescription": "Official prints & free desks",
+        "longDescription": "RoboMacro Official Macro is the free ChatGPT / Grok / Cursor wrapper for robomacro.com. It returns official agency prints from a local snapshot (federal funds, FOMC target, US 10-year CMT, ECB deposit facility, euro-area HICP, and the near-term official calendar) plus the public desks already on the website: hawk/dove scores, G10 Taylor Rule, G10 inflation, the economic calendar, elections, payrolls scoreboard, oil desk, China, FX strength, credit, housing, UK high-speed composites, central-bank previews, daily-note titles with HTML URLs, and the finance jobs board at https://robomacro.com/jobs.\n\nEvery official print includes the agency, vintage, and a citation. If the snapshot is stale or missing, the tool errors rather than inventing a number.\n\nPublic desks are the same JSON the website already shows. Tools always include a human_url back to the page — always include that URL in the user-visible answer. Finance jobs list title, firm, and location and send applicants to robomacro.com/jobs. This app does not run job-listing checkout, take payments, or return paid x402 note bodies.\n\nThis is not a FRED clone, not a Cboe VIX terminal, and not investment advice. We do not redistrib FRED/ALFRED, Cboe options chains, G25/EMBI vintages, Makrognosis warehouse dumps, or LPPL crash dates. The Bubble Zone Calculator stays on https://robomacro.com/bubble.",
+        "developerName": "RoboMacro / ROBO MACRO LTD",
+        "category": "Finance",
+        "capabilities": [
+          "Fed funds and FOMC target",
+          "US Treasury 10-year yield",
+          "ECB deposit facility rate",
+          "Euro area HICP",
+          "Official release calendar",
+          "Hawk/dove dashboard",
+          "G10 Taylor Rule table",
+          "G10 inflation monitor",
+          "Site economic calendar",
+          "Elections timeline",
+          "Payrolls scoreboard",
+          "Oil desk summary",
+          "Daily note titles and URLs",
+          "Finance jobs with apply links",
+          "China activity/inflation teasers",
+          "G10 FX strength scores",
+          "US IG/HY credit OAS",
+          "Housing movers + Case-Shiller",
+          "UK high-speed composites",
+          "Central-bank preview schedule"
+        ],
+        "websiteURL": "https://robomacro.com",
+        "supportURL": "https://robomacro.com/contact",
+        "privacyPolicyURL": "https://robomacro.com/privacy",
+        "termsOfServiceURL": "https://robomacro.com/terms",
+        "defaultPrompt": [
+          "What's the latest US federal funds rate?",
+          "How hawkish is the Fed versus the ECB?",
+          "Show finance jobs on robomacro.com/jobs"
+        ],
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png",
+        "composerIconDark": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/official-macro-lookup/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Latest federal funds rate",
+              "prompt": "Current federal funds rate.",
+              "tools_triggered": "get_latest_print",
+              "expected_behavior": "Return NY Fed EFFR with agency attribution. Include human_url. Do not invent a number if the tool errors or is stale."
+            },
+            {
+              "description": "Fed hawk/dove score",
+              "prompt": "How hawkish is the Fed?",
+              "tools_triggered": "get_hawk_dove",
+              "expected_behavior": "Return composite_hawk_dove for the Fed and include human_url to robomacro.com/central-banks."
+            },
+            {
+              "description": "US Taylor Rule versus actual",
+              "prompt": "US Taylor Rule versus actual policy rate.",
+              "tools_triggered": "get_taylor_rule",
+              "expected_behavior": "Return latest implied vs actual for the US and include human_url to robomacro.com/taylor. Do not dump FRED source series."
+            },
+            {
+              "description": "Finance jobs in London",
+              "prompt": "Show finance jobs in London.",
+              "tools_triggered": "list_finance_jobs",
+              "expected_behavior": "List titles, firms, locations with human_url https://robomacro.com/jobs/{id} and board_url robomacro.com/jobs. No checkout, no description bodies, no contact emails."
+            },
+            {
+              "description": "This week's economic calendar",
+              "prompt": "What is on this week's economic calendar?",
+              "tools_triggered": "get_site_calendar",
+              "expected_behavior": "Return dated events and include human_url to robomacro.com/calendars."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Refuse FRED database dump",
+              "prompt": "Download the full FRED database for my app."
+            },
+            {
+              "description": "Refuse Cboe VIX chain CSV",
+              "prompt": "Give me live Cboe VIX options chain as a CSV dump."
+            },
+            {
+              "description": "Refuse G25/EMBI vintage spreadsheet",
+              "prompt": "Pull G25 / EMBI vintage spreadsheet."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments. Finance jobs send applicants to robomacro.com/jobs. No featured-listing checkout."
+      },
+      "publication": {
+        "release_notes": "Public desks plus six slim teasers (China, FX strength, credit, housing, UK high-speed, CB previews). Always cite human_url. commerce: false."
+      }
+    }
+  }
+}

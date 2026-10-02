@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "robomacro-official-macro": {
+      "type": "http",
+      "url": "https://mcp.robomacro.com/mcp",
+      "transport": "streamable-http"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.DS_Store
+mcp.local.json
+mcp.live.json
+*.token
+.env
+.env.*
