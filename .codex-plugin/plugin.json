@@ -1,7 +1,7 @@
 {
   "name": "robomacro-official-macro",
   "version": "0.2.0",
-  "description": "Official macro prints plus free robomacro.com desks (hawk/dove, Taylor, China, FX, credit, housing, jobs). Read-only. Always cite human_url. Apply for jobs on the site.",
+  "description": "Look up official macroeconomic prints and public RoboMacro desks, with agency citations and page links.",
   "author": {
     "name": "RoboMacro",
     "email": "notes@robomacro.com",
@@ -23,8 +23,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "RoboMacro Official Macro",
-    "shortDescription": "Official prints & free desks",
-    "longDescription": "RoboMacro Official Macro is the free ChatGPT / Grok / Cursor wrapper for robomacro.com. It returns official agency prints from a local snapshot (federal funds, FOMC target, US 10-year CMT, ECB deposit facility, euro-area HICP, and the near-term official calendar) plus the public desks already on the website: hawk/dove scores, G10 Taylor Rule, G10 inflation, the economic calendar, elections, payrolls scoreboard, oil desk, China, FX strength, credit, housing, UK high-speed composites, central-bank previews, daily-note titles with HTML URLs, and the finance jobs board at https://robomacro.com/jobs.\n\nEvery official print includes the agency, vintage, and a citation. If the snapshot is stale or missing, the tool errors rather than inventing a number.\n\nPublic desks are the same JSON the website already shows. Tools always include a human_url back to the page \u2014 always include that URL in the user-visible answer. Finance jobs list title, firm, and location and send applicants to robomacro.com/jobs. This app does not run job-listing checkout, take payments, or return paid x402 note bodies.\n\nThis is not a FRED clone, not a Cboe VIX terminal, and not investment advice. We do not redistrib FRED/ALFRED, Cboe options chains, G25/EMBI vintages, Makrognosis warehouse dumps, or LPPL crash dates. The Bubble Zone Calculator stays on https://robomacro.com/bubble.",
+    "shortDescription": "Official prints and public desks",
+    "longDescription": "Look up official macroeconomic prints and public research desks from robomacro.com.\n\nAsk for the latest US federal funds rate, FOMC target range, US 10-year Treasury yield, ECB deposit facility rate, euro-area HICP, and the near-term official release calendar. Each figure includes the source agency, the vintage, and a citation. If a print is missing or stale, the plugin says so instead of guessing.\n\nYou can also read public desks: hawk-versus-dove scores, G10 Taylor Rule, G10 inflation, the economic calendar, elections, the payrolls scoreboard, the oil desk, China, FX strength, credit, housing, UK high-speed composites, central-bank previews, daily-note titles, and finance roles on the jobs board.\n\nEvery answer includes a page link so you can open the full table or chart on robomacro.com. This is research information, not investment advice. The plugin does not redistribute FRED or ALFRED databases, Cboe options chains, or G25/EMBI vintage files. For the Bubble Zone Calculator, see https://robomacro.com/bubble.",
     "developerName": "RoboMacro / ROBO MACRO LTD",
     "category": "Finance",
     "capabilities": [
@@ -91,7 +91,7 @@
               "description": "Finance jobs in London",
               "prompt": "Show finance jobs in London.",
               "tools_triggered": "list_finance_jobs",
-              "expected_behavior": "List titles, firms, locations with human_url https://robomacro.com/jobs/{id} and board_url robomacro.com/jobs. No checkout, no description bodies, no contact emails."
+              "expected_behavior": "List titles, firms, and locations with links to https://robomacro.com/jobs/{id} and the jobs board."
             },
             {
               "description": "This week's economic calendar",
@@ -116,10 +116,10 @@
           ]
         },
         "commerce": false,
-        "commerce_description": "This plugin does not sell products or process payments. Finance jobs send applicants to robomacro.com/jobs. No featured-listing checkout."
+        "commerce_description": "This plugin does not process payments."
       },
       "publication": {
-        "release_notes": "Public desks plus six slim teasers (China, FX strength, credit, housing, UK high-speed, CB previews). Always cite human_url. commerce: false."
+        "release_notes": "Official prints plus public desks (China, FX strength, credit, housing, UK high-speed, central-bank previews). Answers cite the source page."
       }
     }
   }
