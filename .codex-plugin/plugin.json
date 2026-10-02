@@ -23,7 +23,7 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "RoboMacro Official Macro",
-    "shortDescription": "Official prints and public desks",
+    "shortDescription": "Official prints and desks",
     "longDescription": "Look up official macroeconomic prints and public research desks from robomacro.com.\n\nAsk for the latest US federal funds rate, FOMC target range, US 10-year Treasury yield, ECB deposit facility rate, euro-area HICP, and the near-term official release calendar. Each figure includes the source agency, the vintage, and a citation. If a print is missing or stale, the plugin says so instead of guessing.\n\nYou can also read public desks: hawk-versus-dove scores, G10 Taylor Rule, G10 inflation, the economic calendar, elections, the payrolls scoreboard, the oil desk, China, FX strength, credit, housing, UK high-speed composites, central-bank previews, daily-note titles, and finance roles on the jobs board.\n\nEvery answer includes a page link so you can open the full table or chart on robomacro.com. This is research information, not investment advice. The plugin does not redistribute FRED or ALFRED databases, Cboe options chains, or G25/EMBI vintage files. For the Bubble Zone Calculator, see https://robomacro.com/bubble.",
     "developerName": "RoboMacro / ROBO MACRO LTD",
     "category": "Finance",
